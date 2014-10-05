@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Array.prototype.contains skips holes, and does not treat them as undefined
+description: Array.prototype.contains does not skips holes, and does treat them as undefined
 author: Domenic Denicola
 ---*/
 
