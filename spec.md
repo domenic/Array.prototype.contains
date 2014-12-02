@@ -8,7 +8,8 @@ When the `includes` method is called, the following steps are taken:
 
 1. Let _O_ be the result of calling ToObject passing the **this** value as the argument.
 1. ReturnIfAbrupt(_O_).
-1. Let _len_ be ToLength(Get(_O_, `"length"`)).
+1. Let _lengthValue_ be the result of Get(_O_, `"length"`).
+1. Let _len_ be ToLength(_lengthValue_).
 1. ReturnIfAbrupt(_len_).
 1. If _len_ is 0, return **false**.
 1. Let _n_ be ToInteger(_fromIndex_). (If _fromIndex_ is **undefined**, this step produces the value 0.)
@@ -19,7 +20,8 @@ When the `includes` method is called, the following steps are taken:
     1. Let _k_ be _len_ + _n_.
     1. If _k_ < 0, then let _k_ be 0.
 1. Repeat, while _k_ < _len_
-    1. Let _elementK_ be the result of Get(_O_, ToString(_k_)).
+    1. Let _pk_ be ToString(_k_).
+    1. Let _elementK_ be the result of Get(_O_, _pk_).
     1. ReturnIfAbrupt(_elementK_).
     1. If SameValueZero(_searchElement_, _elementK_) is **true**, return **true**.
     1. Increase _k_ by 1.
